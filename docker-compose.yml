@@ -1,0 +1,11 @@
+name: redis_playground
+
+services:
+  redis:
+    image: redis:alpine
+    working_dir: /data
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    command: sleep infinity
