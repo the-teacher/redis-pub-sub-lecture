@@ -41,3 +41,7 @@ nodejs_status:
 
 nodejs_stop_node:
 	docker-compose exec nodejs pkill node
+
+nodejs_publisher_start:
+	docker-compose exec nodejs yarn add redis chalk@4
+	docker-compose exec nodejs yarn node publisher.js
