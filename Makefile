@@ -23,6 +23,19 @@ redis_down:
 redis_shell:
 	docker-compose exec redis sh
 
+redis_start:
+	make redis_up
+	docker-compose exec -d redis redis-server \
+		--appendonly yes \
+		--requirepass qwerty \
+		--save 60 1
+
+redis_stop:
+	docker-compose exec redis redis-cli -a qwerty shutdown
+
+redis_status:
+	docker-compose exec redis redis-cli -a qwerty ping
+
 ############################################
 # NodeJS SERVICE
 ############################################
