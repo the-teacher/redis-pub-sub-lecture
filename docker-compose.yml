@@ -9,3 +9,10 @@ services:
     volumes:
       - ./data:/data
     command: sleep infinity
+
+  nodejs:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: sleep infinity
