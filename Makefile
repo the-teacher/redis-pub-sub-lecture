@@ -22,3 +22,22 @@ redis_down:
 
 redis_shell:
 	docker-compose exec redis sh
+
+############################################
+# NodeJS SERVICE
+############################################
+
+nodejs_up:
+	docker-compose up -d nodejs
+
+nodejs_down:
+	docker-compose stop nodejs
+
+nodejs_shell:
+	docker-compose exec nodejs sh
+
+nodejs_status:
+	docker-compose exec nodejs ps aux
+
+nodejs_stop_node:
+	docker-compose exec nodejs pkill node
