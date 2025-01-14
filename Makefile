@@ -58,3 +58,11 @@ nodejs_stop_node:
 nodejs_publisher_start:
 	docker-compose exec nodejs yarn add redis chalk@4
 	docker-compose exec nodejs yarn node publisher.js
+
+# Start subscriber
+# make nodejs_subscriber_start (my_channel by default)
+# make nodejs_subscriber_start channel_name=weather_news
+# make nodejs_subscriber_start channel_name=finance_news
+# make nodejs_subscriber_start channel_name=education_news
+nodejs_subscriber_start:
+	docker-compose exec -e CHANNEL_NAME=$(channel_name) nodejs yarn node subscriber.js
